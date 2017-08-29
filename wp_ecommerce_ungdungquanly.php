@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: eShop
+Plugin Name: WP eCommerce
 Author: Pham Van Truong (invncur@gmail.com)
 Version: 1.0.0
 */
@@ -119,7 +119,7 @@ function create_plugin_settings_page() {
    
     // Add the menu item and page
     $page_title = 'Settings';
-    $menu_title = 'eShop';
+    $menu_title = 'WP eCommerce';
     $capability = 'manage_options';
     $slug = 'eshop_fields_setting';
     $callback = 'plugin_settings_page_content';
@@ -139,10 +139,11 @@ add_action( 'admin_init', 'setup_sections'  );
 //create fields
 function setup_fields() {
     //server url
-    $server_url = get_option( 'server_url');
-    if(!$server_url) $server_url = "https://ungdungquanly.vn";
     register_setting( 'eshop_fields_setting', 'server_url' );
     add_settings_field( 'server_url', 'Địa chỉ máy chủ',  function($arguments){
+        $server_url = get_option( 'server_url');
+        if(!$server_url) $server_url = "https://ungdungquanly.vn";
+        
         echo '<input name="server_url" id="server_url" type="text" value="' . $server_url . '" />';
     } , 'eshop_fields_setting', 'connection_info_session' );
     
@@ -514,10 +515,10 @@ class wpb_widget_shop extends WP_Widget {
         'wpb_widget_shop', 
 
         // Widget name will appear in UI
-        __('Cửa hàng', 'wpb_widget_domain'), 
+        __('WP eCommerce - Danh sách sản phẩm', 'wpb_widget_domain'), 
 
         // Widget description
-        array( 'description' => __( 'Widget cửa hàng. widget này chỉ xuất hiện trên trang chủ (home)', 'wpb_widget_domain' ), ) 
+        array( 'description' => __( 'Widget danh sách sản phẩm. widget này chỉ xuất hiện trên trang chủ (home)', 'wpb_widget_domain' ), ) 
         );
         
     }
