@@ -1,0 +1,13 @@
+{
+	"name": "SHOP",
+    "version": "1.0.0",
+    "dependencies": {
+		"underscore":"latest",
+		"angular": "latest",
+		"angular-cookie":"latest",
+		"angular-route": "latest",
+		"angular-easyfb":"latest",
+		"ngDialog":"latest",
+		"angular-rateit":"latest"
+    }
+}

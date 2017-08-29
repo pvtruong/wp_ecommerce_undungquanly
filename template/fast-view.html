@@ -1,0 +1,79 @@
+<div id="<?php echo $product['_id']?>" style="display: none; width: 700px;background-color:white!important">
+            <div class="product-page product-pop-up">
+              <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-3">
+                  <div class="product-main-image">
+                    <img  ng-src="{{server_url}}{{picture?picture:'<?php echo $product['picture']?>'}}" alt="<?php echo $product['ten_vt']?>" class="img-responsive">
+                  </div>
+                  <div class="product-other-images">
+					<?php
+						if($product['picture2']!='' || $product['picture3']!='' || $product['picture4']!=''  || $product['picture5']!=''){
+					?>
+							<a ng-click="picture='<?php echo $product['picture']?>'" ng-class="!picture || picture=='<?php echo $product['picture']?>'?'active':''"><img alt='<?php echo $product['ten_vt']?>' src='<?php echo $server_url_host.$product['picture_thumb'] ?>'></a>
+					<?php
+						}
+						if($product['picture2']!=''){
+					?>
+							<a ng-click="picture='<?php echo $product['picture2']?>'" ng-class="picture=='<?php echo $product['picture2']?>'?'active':''"><img alt='<?php echo $product['ten_vt']?>' src='<?php echo $server_url_host.$product['picture2_thumb'] ?>'></a>
+					<?php
+						}
+						if($product['picture3']!=''){
+					?>
+							<a ng-click="picture='<?php echo $product['picture3']?>'" ng-class="picture=='<?php echo $product['picture3']?>'?'active':''"><img alt='<?php echo $product['ten_vt']?>' src='<?php echo $server_url_host.$product['picture3_thumb'] ?>'></a>
+					<?php
+						}
+						if($product['picture4']!=''){
+					?>
+							<a ng-click="picture='<?php echo $product['picture4']?>'" ng-class="picture=='<?php echo $product['picture4']?>'?'active':''"><img alt='<?php echo $product['ten_vt']?>' src='<?php echo server_url_host.$product['picture4_thumb'] ?>'></a>
+					<?php
+						}
+						if($product['picture5']!=''){
+					?>
+							<a ng-click="picture='<?php echo $product['picture5']?>'" ng-class="picture=='<?php echo $product['picture5']?>'?'active':''"><img alt='<?php echo $product['ten_vt']?>' src='<?php echo server_url_host.$product['picture5_thumb'] ?>'></a>
+					<?php
+						}
+					?>
+                    
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-9">
+                  <h2><?php echo $product['ten_vt']?></h2>
+                  <div class="price-availability-block clearfix">
+                    <div class="price">
+                      <strong><?php echo number_format($product['gia_ban_thuc'])?><span>đ</span></strong>
+					  <?php
+						if($product['gia_ban_le']!=$product['gia_ban_thuc']){
+							echo "<em><span>".number_format($product['gia_ban_le'])."đ</span></em>";
+						}
+					  ?>
+                    </div>
+                    <div class="availability">
+                      Tình trạng: <strong><?php echo $product['ten_tinh_trang']?></strong>
+                    </div>
+                  </div>
+				  <div class="description">
+                    <p><?php if(isset($product['khuyen_mai'])==true) echo $product['khuyen_mai']?>.</p>
+                  </div>
+                  <div class="description">
+                    <p><?php echo $product['mieu_ta']?>.</p>
+                  </div>
+                  <div class="product-page-cart">
+                    <div class="product-quantity">
+                        <input id="product-quantity" type="text" value="1" readonly name="product-quantity" class="form-control input-sm">
+                    </div>
+                    <button class="btn btn-primary" ng-click="cart.add2cart('<?php echo $product['_id']; ?>',1)">Đặt mua</button>
+                    <a href="sp-<?php echo $product['_id'].'-'.$product['ten_vt']?>.html" class="btn btn-default">Chi tiết</a>
+                  </div>
+                </div>
+
+                <?php
+					if($product['gia_ban_le']!=$product['gia_ban_thuc']){
+						echo "<div class='sticker sticker-sale'></div>";
+					}
+					if($product['sp_moi']==true){
+						echo "<div class='sticker sticker-new'></div>";
+					}
+				  ?>
+              </div>
+            </div>
+    </div>

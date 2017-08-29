@@ -1,0 +1,26 @@
+<div class="top-cart-block" style="display:none;margin: 20px!important;" id="cartpopup">
+  <div class="top-cart-info">
+	<a href="javascript:void(0);" class="top-cart-info-count">{{cart.t_sl|number:0}} sản phẩm</a>
+	<a href="javascript:void(0);" class="top-cart-info-value">{{cart.t_tien|number:0}} đ</a>
+  </div>
+  <i class="fa fa-shopping-cart"></i>
+				
+  <div class="top-cart-content-wrapper">
+	<div class="top-cart-content">
+	  <ul class="scroller" style="height: 250px;">
+		<li ng-repeat="item in cart.shops[id_app].listproducts">
+		  <a ng-href="sp-{{item._id}}-{{item.ten_vt}}.html"><img ng-src="{{server_url}}{{item.picture_thumb}}" alt="{{item.ten_vt}}" width="37" height="34"></a>
+		  <span class="cart-content-count">x {{item.sl_xuat|number:0}}</span>
+		  <strong><a ng-href="sp-{{item._id}}-{{item.ten_vt}}">{{item.ten_vt}}</a></strong>
+		  <em>{{item.tien|number:0}}</em>
+		  <a ng-click="cart.delete2cart(id_app,item._id,0)" class="del-goods">&nbsp;</a>
+		</li>
+		
+	  </ul>
+	  <div class="text-right">
+		<a href="shopping-cart.php" class="btn btn-default">Xem giỏ hàng</a>
+		<a href="checkout.php" class="btn btn-primary">Thanh toán</a>
+	  </div>
+	</div>
+  </div>            
+</div>

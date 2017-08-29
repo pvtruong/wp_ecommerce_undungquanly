@@ -1,0 +1,16 @@
+<div class="ui <?php echo $number_products_row; ?> doubling cards">
+	<h3 ng-if="products_count==0">Không có sản phẩm nào.</h3>
+  <?php
+	if($products!=null){
+	foreach($products as $product){
+	?>  
+        <div class="ui card">
+            <?php include $dir.'template/product-item-2.html'?>
+        </div>
+	<?php
+	}
+	}
+  ?>
+  
+  
+</div>

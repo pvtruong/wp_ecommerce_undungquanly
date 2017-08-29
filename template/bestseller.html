@@ -1,0 +1,24 @@
+<div style="margin-top:20px">
+<?php
+	$url = "dmvt?limit=5&q={bestseller:true,status:true}&id_app=".$id_app;
+	$products_bestseller = $core->getJson($url,true);
+	if(count($products_bestseller)>0){	
+ ?>  
+	<h2>Sẩn phẩm bán chạy nhất</h2>
+	<?php
+		foreach($products_bestseller as $product){
+		?>
+		<div class="">
+            <a href="sp-<?php echo $product['_id'].'-'.$product['ten_vt'] ?>">
+                 <img src="<?php echo $server_url_host.$product['picture_thumb'] ?>" alt="<?php echo $product['ten_vt'] ?>" class="img-responsive" style="width:100%!important"/>
+            </a> 
+            <div>
+                <h5 style="font: 300 14px 'Open Sans', sans-serif"> <?php echo $product['ten_vt'] ?></h5>
+                <div class="price"><?php echo number_format($product['gia_ban_thuc']) ?> đ</div>
+            </div>
+		</div>
+		<?php
+		}
+	?>
+<?php }?>
+</div>

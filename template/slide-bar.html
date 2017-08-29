@@ -1,0 +1,13 @@
+
+<div style="margin-top:20px;padding:20px;background-color:white" >
+    <h2>Nhóm sản phẩm</h2>
+    <ul class='list-group' style="margin:0!important">
+	  <?php
+            $url = "dmnvt?q={bac:1,status:true}&id_app=".$id_app;
+            $groupProducts_slidebar = $core->getJson($url,true);
+            foreach($groupProducts_slidebar as $group){
+                include $dir."template/slide-item.html";
+            }
+        ?>
+	</ul>
+</div>

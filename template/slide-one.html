@@ -1,0 +1,36 @@
+﻿<div class="ls-slide ls-slide3" data-ls="offsetxin: right; slidedelay: 7000; transition2d: 92,93,105;">
+
+          <img src="<?php echo $server_url_host.$product_one['picture'] ?>" class="ls-bg" alt="<?php echo $product_one['ten_vt'] ?>">
+          
+          <div class="ls-l ls-title" style="top: 83px; left: 33%; white-space: nowrap;" data-ls="
+          fade: true; 
+          fadeout: true; 
+          durationin: 750; 
+          durationout: 750; 
+          easingin: easeOutQuint; 
+          rotatein: 90; 
+          rotateout: -90; 
+          scalein: .5; 
+          scaleout: .5; 
+          showuntil: 4000;
+          "><a href="sp-<?php echo $product_one['_id'].'-'.$product_one['ten_vt']  ?>.html" style="text-decoration:none"><?php echo $product_one['ten_vt'] ?></a>
+          </div>
+          <div class="ls-l" style="top: 333px; left: 33%; white-space: nowrap; font-size: 20px; font: 20px 'Open Sans Light', sans-serif;" data-ls="
+          fade: true; 
+          fadeout: true; 
+          durationout: 750; 
+          easingin: easeOutQuint; 
+          delayin: 300; 
+          scalein: .8; 
+          scaleout: .8; 
+          showuntil: 4000;
+          ">
+            <a href="sp-<?php echo $product_one['_id'].'-'.$product_one['ten_vt']  ?>.html" class="ls-buy">
+              Mua ngay!
+            </a>
+            <div class="ls-price">
+              <span>Giá chỉ:</span>
+              <strong><?php echo number_format($product_one['gia_ban_thuc'])?><sup>đ</sup></strong>
+            </div>
+          </div>
+        </div>

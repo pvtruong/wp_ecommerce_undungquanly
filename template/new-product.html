@@ -1,0 +1,16 @@
+<div style="margin-top:40px;">
+    <?php
+        $url = "dmvt?limit=20&q={status:true}&sort=date_created&id_app=".$id_app;
+        $products_new = $core->getJson($url,true);
+        if(count($products_new)>0){
+     ?>  
+    <h2>Sản phẩm mới</h2>
+    <div class="owl-carousel owl-carousel3">
+      <?php 
+        foreach($products_new as $product){
+            include $dir."template/product-item-2.html";
+        }
+      ?>
+    </div>
+    <?php }?>
+</div>

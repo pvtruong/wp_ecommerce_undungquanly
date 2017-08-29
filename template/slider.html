@@ -1,0 +1,36 @@
+<?php
+	$url = "dmvt?limit=4&q={banner_large:true,status:true}&id_app=".$id_app;
+	$products_slider = getJson($url,true);
+	if(count($products_slider)>0){
+ ?>
+<div id="layerslider" style="width: 100%; height: 494px; margin: 0 auto;">
+
+	<!-- slide one start -->
+	<?php if(count($products_slider)>=1){
+		$product_one = $products_slider[0]; 
+		include "slide-one.html";
+	} ?>
+	<!-- slide one end -->
+
+	<!-- slide two start -->
+	<?php if(count($products_slider)>=2){
+		$product_two = $products_slider[1]; 
+		include "slide-two.html";
+	} ?>
+	<!-- slide two end -->
+
+	<!-- slide three start -->
+	<?php if(count($products_slider)>=3){
+		$product_three = $products_slider[2]; 
+		include "slide-three.html";
+	} ?>
+	<!-- slide three end -->
+
+	<!-- slide four start -->
+	<?php if(count($products_slider)>=4){
+		$product_four = $products_slider[3]; 
+		include "slide-four.html";
+	} ?>
+	<!-- slide four end -->
+</div>
+<?php }?>

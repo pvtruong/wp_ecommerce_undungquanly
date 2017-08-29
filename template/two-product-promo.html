@@ -1,0 +1,48 @@
+<!-- BEGIN TWO PRODUCTS -->
+<div style="margin-top:40px;" class="row">
+      <div class="col-md-6 two-items-bottom-items">
+        <h2>Nổi bật</h2>
+        <div class="owl-carousel owl-carousel2">
+           <?php
+                $url = "dmvt?limit=5&q={banner_small:true,status:true}&id_app=".$id_app;
+                $products_slider = $core->getJson($url,true);
+
+                if(count($products_slider)>0){
+                    foreach($products_slider as $product){
+                        include $dir."template/product-item.html";
+                    }
+
+                }
+             ?>
+        </div>
+      </div>
+      <!-- END TWO PRODUCTS -->
+      <!-- BEGIN PROMO -->
+      <?php
+        $url = "dmvt?limit=3&q={banner_large:true,status:true}&id_app=".$id_app;
+        $products_slider = $core->getJson($url,true);
+        if(count($products_slider)>0){
+     ?>
+      <div class="col-md-6 shop-index-carousel">
+        <div class="content-slider">
+          <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+              <?php $stt=0; foreach($products_slider as $product) { ?>
+              <li data-target="#myCarousel" data-slide-to="<?php echo $stt ?>" class="<?php if($stt==0) echo 'active' ?>"></li>
+
+              <?php $stt = $stt+1; } ?>
+            </ol>
+            <div class="carousel-inner">
+             <?php $stt=0; foreach($products_slider as $product) { ?>
+              <div class="item <?php if($stt==0) echo 'active' ?>" style="height:400px;background-color:white">
+                <a href='sp-<?php echo $product["_id"]."-".$product["ten_vt"] ?>' style='text-decoration:none'><img src="<?php echo $server_url_host.$product['picture'] ?>" class="img-responsive" alt="<?php echo $product['ten_vt'] ?>"></a>
+              </div>
+              <?php  $stt = $stt+1; } ?>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php } ?>
+      <!-- END PROMO -->
+</div>

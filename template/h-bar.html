@@ -1,0 +1,12 @@
+
+<div style="" >
+    <ul class='nav nav-pills nav-justified' style="margin:0!important">
+	  <?php
+            $url = "dmnvt?q={bac:1,status:true}&id_app=".$id_app;
+            $groupProducts_slidebar = $core->getJson($url,true);
+            foreach($groupProducts_slidebar as $group){
+                include $dir."template/h-item.html";
+            }
+        ?>
+	</ul>
+</div>

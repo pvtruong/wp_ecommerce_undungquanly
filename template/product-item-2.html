@@ -1,0 +1,21 @@
+<div class="product-item">
+  <div class="pi-img-wrapper">
+    <img ng-src="<?php echo $server_url_host.$product['picture_thumb']?>" class="img-responsive" alt="<?php echo $product['ten_vt'] ?>">
+    <div>
+       <a ng-click="zoom('<?php echo $server_url_host.$product['picture']?>')" class="btn btn-default fancybox-button">Zoom</a>
+      <a ng-click="fastView('<?php echo $product['_id']; ?>')" class="btn btn-default">Xem</a>
+    </div>
+  </div>
+  <h3><a href="sp-<?php echo $product['_id'].'-'.$product['ten_vt'] ?>"><?php echo $core->truncted($product['ten_vt'],24)?></a></h3>
+  <div class="pi-price"><?php echo number_format($product['gia_ban_thuc']); ?> đ</div>
+  <a ng-click="cart.add2cart('<?php echo $product['_id']; ?>',1)" class="btn btn-default add2cart">Đặt mua</a>
+   <?php
+    if($product['gia_ban_le']!=$product['gia_ban_thuc']){
+        echo "<div class='sticker sticker-sale'></div>";
+    }
+    if($product['sp_moi']==true){
+        echo "<div class='sticker sticker-new'></div>";
+    }
+  ?>
+</div>
+

@@ -1,0 +1,18 @@
+<div style="margin-top:40px;">
+    <?php
+        $url = 'dmvt?limit=20&q='.urlencode('{status:true,$where:function(){ return this.tien_ck || this.khuyen_mai}}').'&id_app='.$id_app;
+        $products_km = $core->getJson($url,true);
+        if(count($products_km)>0){
+     ?>  
+    <h2 >Sản phẩm đang có khuyến mãi, giảm giá</h2>
+    <div class="owl-carousel owl-carousel3">
+      <?php 
+        foreach($products_km as $product){
+            include $dir."template/product-item-2.html";
+        }
+      ?>
+
+
+    </div>
+    <?php }?>
+</div>

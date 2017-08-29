@@ -1,0 +1,41 @@
+<!-- BEGIN PRE-FOOTER -->
+    <div class="pre-footer">
+      <div class="container">
+        <div class="row">
+          <!-- BEGIN SOCIAL ICONS -->
+          <div class="col-md-2 col-sm-2">
+            <ul class="social-icons">
+				<?php if(isset($shop['facebook'])==true) echo "<li><a class='facebook' data-original-title='facebook' href='".$shop['facebook']."'></a></li>" ?>
+            </ul>
+          </div>
+          <!-- END SOCIAL ICONS -->
+          <!-- BEGIN NEWLETTER -->
+          <div class="col-md-10 col-sm-10">
+            <div class="pre-footer-subscribe-box pull-right">
+              <h2>Đăng ký nhận thông tin về các chương trình khuyến mãi, giảm giá</h2>
+              <form novalidate>
+                <div class="input-group">
+                  <input type="email" placeholder="Địa chỉ email của bạn" ng-model="email_subscribe" class="form-control">
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" ng-click="subscribe(email_subscribe)" ng-disabled="!email_subscribe">Đăng ký</button>
+                  </span>
+                </div>
+              </form>
+            </div> 
+          </div>
+          <!-- END NEWLETTER -->
+        </div>
+      </div>
+    </div>
+    <!-- END PRE-FOOTER -->
+<div class="footer">
+  <div class="container">
+	<div class="row">
+	  <!-- BEGIN COPYRIGHT -->
+	  <div class="col-md-6 col-sm-6 padding-top-10">
+		2015 © <a href="http://salefly.crmplus.vn" style="text-decoration:none">Salefly.vn </a>
+	  </div>
+	  <!-- END COPYRIGHT -->
+	</div>
+  </div>
+</div>
