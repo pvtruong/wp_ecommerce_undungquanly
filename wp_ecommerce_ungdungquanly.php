@@ -8,35 +8,37 @@ Version: 1.0.0
 //css and js
 require_once dirname( __FILE__ )."/".'libs/core.php';
 function eshop_libs() {
-    wp_register_style('font-awesome', plugins_url("/assets/global/plugins/font-awesome/css/font-awesome.min.css",__FILE__ ));
-    wp_register_style('bootstrap', plugins_url("/assets/global/plugins/bootstrap/css/bootstrap.min.css",__FILE__ ));
+    $server_url_libs = get_option( 'server_url')."/ecommerce";
+    
+    wp_register_style('font-awesome', $server_url_libs."/assets/global/plugins/font-awesome/css/font-awesome.min.css");
+    wp_register_style('bootstrap', $server_url_libs."/assets/global/plugins/bootstrap/css/bootstrap.min.css");
 
 
 
-    wp_register_style('jquery.fancybox', plugins_url("/assets/global/plugins/fancybox/source/jquery.fancybox.css",__FILE__ ));
-    wp_register_style('owl.carousel', plugins_url("/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css",__FILE__ ));
-    wp_register_style('layerslider', plugins_url("/assets/global/plugins/slider-layer-slider/css/layerslider.css",__FILE__ ));
+    wp_register_style('jquery.fancybox', $server_url_libs."/assets/global/plugins/fancybox/source/jquery.fancybox.css");
+    wp_register_style('owl.carousel', $server_url_libs."/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.css");
+    wp_register_style('layerslider', $server_url_libs."/assets/global/plugins/slider-layer-slider/css/layerslider.css");
 
 
 
-    wp_register_style('components', plugins_url("/assets/global/css/components.css",__FILE__ ));
-    wp_register_style('style', plugins_url("/assets/frontend/layout/css/style.css",__FILE__ ));
-    wp_register_style('style-shop', plugins_url("/assets/frontend/pages/css/style-shop.css" ,__FILE__ ));
-    wp_register_style('style-layer-slider', plugins_url("/assets/frontend/pages/css/style-layer-slider.css",__FILE__ ));
-    wp_register_style('style-responsive', plugins_url("/assets/frontend/layout/css/style-responsive.css",__FILE__ ));
+    wp_register_style('components', $server_url_libs."/assets/global/css/components.css");
+    wp_register_style('style', $server_url_libs."/assets/frontend/layout/css/style.css");
+    wp_register_style('style-shop', $server_url_libs."/assets/frontend/pages/css/style-shop.css" );
+    wp_register_style('style-layer-slider', $server_url_libs."/assets/frontend/pages/css/style-layer-slider.css");
+    wp_register_style('style-responsive', $server_url_libs."/assets/frontend/layout/css/style-responsive.css");
     
     $color_shop = get_option('color_shop');
     if(!$color_shop){
         $color_shop = 'blue';
     }
-    wp_register_style('green', plugins_url("/assets/frontend/layout/css/themes/".$color_shop.".css" ,__FILE__ ));
+    wp_register_style('green', $server_url_libs."/assets/frontend/layout/css/themes/".$color_shop.".css" );
     
-    wp_register_style('custom2', plugins_url("/assets/frontend/layout/css/custom.css",__FILE__ ));
-    wp_register_style('ngDialog', plugins_url("/libs/ngDialog/css/ngDialog.min.css",__FILE__ ));
-    wp_register_style('ngDialog-theme-default', plugins_url("/libs/ngDialog/css/ngDialog-theme-default.min.css" ,__FILE__ ));
+    wp_register_style('custom2', $server_url_libs."/assets/frontend/layout/css/custom.css");
+    wp_register_style('ngDialog', $server_url_libs."/libs/ngDialog/css/ngDialog.min.css");
+    wp_register_style('ngDialog-theme-default', $server_url_libs."/libs/ngDialog/css/ngDialog-theme-default.min.css" );
     
-    wp_register_style( 'ng-rateit', plugins_url("/libs/angular-rateit/dist/ng-rateit.css" ,__FILE__ ));
-    wp_register_style( 'semantic-ui-card', plugins_url("/libs/semantic-ui-card/card.min.css" ,__FILE__ ));
+    wp_register_style( 'ng-rateit', $server_url_libs."/libs/angular-rateit/dist/ng-rateit.css" );
+    wp_register_style( 'semantic-ui-card', $server_url_libs."/libs/semantic-ui-card/card.min.css" );
     
     
 
@@ -58,34 +60,34 @@ function eshop_libs() {
    
     
     
-    wp_register_script( 'jquery2', plugins_url("/assets/global/plugins/jquery-1.11.0.min.js" ,__FILE__ ));
-    wp_register_script( 'jquery-migrate', plugins_url("/assets/global/plugins/jquery-migrate-1.2.1.min.js" ,__FILE__ ));
-    wp_register_script( 'bootstrap', plugins_url("/assets/global/plugins/bootstrap/js/bootstrap.min.js" ,__FILE__ ));      
-    wp_register_script( 'jquery.slimscroll', plugins_url("/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" ,__FILE__ ));
+    wp_register_script( 'jquery2', $server_url_libs."/assets/global/plugins/jquery-1.11.0.min.js" );
+    wp_register_script( 'jquery-migrate', $server_url_libs."/assets/global/plugins/jquery-migrate-1.2.1.min.js" );
+    wp_register_script( 'bootstrap', $server_url_libs."/assets/global/plugins/bootstrap/js/bootstrap.min.js" );      
+    wp_register_script( 'jquery.slimscroll', $server_url_libs."/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" );
 
                                                                    
-    wp_register_script( 'angular', plugins_url("/libs/angular/angular.min.js" ,__FILE__ ));
-    wp_register_script( 'angular-cookie', plugins_url("/libs/angular-cookie/angular-cookie.min.js" ,__FILE__ ));
-    wp_register_script( 'underscore-min', plugins_url("/libs/underscore/underscore-min.js" ,__FILE__ ));
-    wp_register_script( 'ngDialog', plugins_url("/libs/ngDialog/js/ngDialog.min.js" ,__FILE__ ));
-    wp_register_script( 'ng-rateit', plugins_url("/libs/angular-rateit/dist/ng-rateit.min.js" ,__FILE__ ));
-    wp_register_script( 'client', plugins_url("/libs/client.js" ,__FILE__ ));
+    wp_register_script( 'angular', $server_url_libs."/libs/angular/angular.min.js" );
+    wp_register_script( 'angular-cookie', $server_url_libs."/libs/angular-cookie/angular-cookie.min.js" );
+    wp_register_script( 'underscore-min', $server_url_libs."/libs/underscore/underscore-min.js" );
+    wp_register_script( 'ngDialog', $server_url_libs."/libs/ngDialog/js/ngDialog.min.js" );
+    wp_register_script( 'ng-rateit', $server_url_libs."/libs/angular-rateit/dist/ng-rateit.min.js" );
+    wp_register_script( 'client', $server_url_libs."/libs/client.js" );
 
     
-    wp_register_script( 'jquery.fancybox', plugins_url("/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" ,__FILE__ ));
-    wp_register_script( 'owl.carousel', plugins_url("/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js" ,__FILE__ ));
-    wp_register_script( 'jquery.zoom', plugins_url("/assets/global/plugins/zoom/jquery.zoom.min.js" ,__FILE__ ));
-    wp_register_script( 'bootstrap.touchspin', plugins_url("/assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js" ,__FILE__ ));
+    wp_register_script( 'jquery.fancybox', $server_url_libs."/assets/global/plugins/fancybox/source/jquery.fancybox.pack.js" );
+    wp_register_script( 'owl.carousel', $server_url_libs."/assets/global/plugins/carousel-owl-carousel/owl-carousel/owl.carousel.min.js" );
+    wp_register_script( 'jquery.zoom', $server_url_libs."/assets/global/plugins/zoom/jquery.zoom.min.js" );
+    wp_register_script( 'bootstrap.touchspin', $server_url_libs."/assets/global/plugins/bootstrap-touchspin/bootstrap.touchspin.js" );
 
 
-    wp_register_script( 'greensock', plugins_url("/assets/global/plugins/slider-layer-slider/js/greensock.js" ,__FILE__ ));
-    wp_register_script( 'layerslider.transitions', plugins_url("/assets/global/plugins/slider-layer-slider/js/layerslider.transitions.js" ,__FILE__ ));
-    wp_register_script( 'layerslider.kreaturamedia', plugins_url("/assets/global/plugins/slider-layer-slider/js/layerslider.kreaturamedia.jquery.js" ,__FILE__ ));
-    wp_register_script( 'elayerslider-initshop', plugins_url("/assets/frontend/pages/scripts/layerslider-init.js" ,__FILE__ ));
+    wp_register_script( 'greensock', $server_url_libs."/assets/global/plugins/slider-layer-slider/js/greensock.js" );
+    wp_register_script( 'layerslider.transitions', $server_url_libs."/assets/global/plugins/slider-layer-slider/js/layerslider.transitions.js" );
+    wp_register_script( 'layerslider.kreaturamedia', $server_url_libs."/assets/global/plugins/slider-layer-slider/js/layerslider.kreaturamedia.jquery.js" );
+    wp_register_script( 'elayerslider-initshop', $server_url_libs."/assets/frontend/pages/scripts/layerslider-init.js" );
 
 
-    //wp_register_script( 'back-to-top', plugins_url("/assets/frontend/layout/scripts/back-to-top.js" ,__FILE__ ));
-    wp_register_script( 'layout', plugins_url("/assets/frontend/layout/scripts/layout.js" ,__FILE__ ));
+    //wp_register_script( 'back-to-top', $server_url_libs."/assets/frontend/layout/scripts/back-to-top.js" );
+    wp_register_script( 'layout', $server_url_libs."/assets/frontend/layout/scripts/layout.js" );
     
     wp_enqueue_script('jquery2');
     wp_enqueue_script('jquery-migrate');

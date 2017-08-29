@@ -75,7 +75,7 @@
       <div class="">
         <!-- BEGIN SIDEBAR -->
         <div style="margin-bottom:10px">
-            <?php include $dir."template/h-bar.html" ?>
+            <?php include $dir."template/h-bar.html";?>
         </div>
         <!-- END SIDEBAR -->
         <!-- CONTENT -->
