@@ -139,10 +139,13 @@ add_action( 'admin_init', 'setup_sections'  );
 //create fields
 function setup_fields() {
     //server url
+    $server_url = get_option( 'server_url');
+    if(!$server_url) $server_url = "https://ungdungquanly.vn";
     register_setting( 'eshop_fields_setting', 'server_url' );
     add_settings_field( 'server_url', 'Địa chỉ máy chủ',  function($arguments){
-        echo '<input name="server_url" id="server_url" type="text" value="' . get_option( 'server_url') . '" />';
+        echo '<input name="server_url" id="server_url" type="text" value="' . $server_url . '" />';
     } , 'eshop_fields_setting', 'connection_info_session' );
+    
     //id app
     register_setting( 'eshop_fields_setting', 'id_app' );
     add_settings_field( 'id_app', 'Id cửa hàng/công ty',function($arguments){
