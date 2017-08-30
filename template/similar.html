@@ -1,19 +1,21 @@
-<?php
-	if(isset($product_main)==true){
-		$url = "dmvt?limit=20&q={ma_nvt:'".$product_main['ma_nvt']."',status:true}&id_app=".$id_app;
-	}else{
-		$url = "dmvt?limit=20&q={hot:true,status:true}&id_app=".$id_app;
-	}
-	
-	$products_simmilar = $core->getJson($url,true);
-	if(count($products_simmilar)>0){
- ?>  
-<h2>Những sản phẩm phổ biến</h2>
-	<div class="owl-carousel owl-carousel4">
-	 <?php
-		foreach($products_simmilar as $product){
-			include $dir."template/product-item.html";
-		}
-	 ?>  
-	</div>
-<?php }?>
+<div style="margin-top:40px;">
+    <?php
+        if(isset($product_main)==true){
+            $url = "dmvt?limit=20&q={ma_nvt:'".$product_main['ma_nvt']."',status:true}&id_app=".$id_app;
+        }else{
+            $url = "dmvt?limit=20&q={hot:true,status:true}&id_app=".$id_app;
+        }
+
+        $products_simmilar = $core->getJson($url,true);
+        if(count($products_simmilar)>0){
+     ?>  
+    <h2>Những sản phẩm phổ biến</h2>
+        <div class="owl-carousel owl-carousel5">
+         <?php
+            foreach($products_simmilar as $product){
+                include $dir."template/product-item-2.html";
+            }
+         ?>  
+        </div>
+    <?php }?>
+</div>

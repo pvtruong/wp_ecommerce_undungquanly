@@ -8,7 +8,7 @@ Version: 1.0.0
 //css and js
 require_once dirname( __FILE__ )."/".'libs/core.php';
 function eshop_libs() {
-    $server_url_libs = get_option( 'server_url')."/ecommerce";
+    $server_url_libs = plugins_url( '', __FILE__ );//get_option( 'server_url')."/ecommerce";
     
     wp_register_style('font-awesome', $server_url_libs."/assets/global/plugins/font-awesome/css/font-awesome.min.css");
     wp_register_style('bootstrap', $server_url_libs."/assets/global/plugins/bootstrap/css/bootstrap.min.css");

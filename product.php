@@ -39,6 +39,7 @@
             LayersliderInit.initLayerSlider();
             Layout.initImageZoom();
             Layout.initTouchspin();
+            $('.fancybox').fancybox();
 
         });
 	</script>
@@ -50,25 +51,15 @@
         </div>
         <!-- END SIDEBAR -->
         <!-- BEGIN SIDEBAR & CONTENT -->
-        <div class="row margin-bottom-40">
-          <!-- BEGIN CONTENT -->
-          <div class="col-md-12">
-            <?php
-				include $dir."template/product.html";
-			?>
-          </div>
-          <!-- END CONTENT -->
-        </div>
+        <?php
+            include $dir."template/product.html";
+        ?>
         <!-- END SIDEBAR & CONTENT -->
 
         <!-- BEGIN SIMILAR PRODUCTS -->
-        <div class="row margin-bottom-40">
-          <div class="col-md-12 col-sm-12">
-            <?php
-				include $dir."template/similar.html";
-			?>
-          </div>
-        </div>
+        <?php
+            include $dir."template/similar.html";
+        ?>
         <!-- END SIMILAR PRODUCTS -->
       </div>
     </div>
