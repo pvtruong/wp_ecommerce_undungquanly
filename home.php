@@ -11,6 +11,10 @@
       <?php
         include $dir."template/header.html";
       ?>
+      <!--header page shop content-->
+      <div class="header-page-shop-post-content" style="margin-bottom:10px">
+        <?php echo $header_page_shop_post_content ?>
+      </div>
       <script type="text/javascript">
         jQuery(document).ready(function() {
             Layout.init();    
@@ -64,6 +68,9 @@
           <!-- END CONTENT -->
         </div>
         <!-- END SIDEBAR & CONTENT -->
+      </div>
+      <div class="footer-page-shop-post-content" style="margin-top:10px">
+         <?php echo $footer_page_shop_post_content ?>
       </div>
 </div>
 <?php

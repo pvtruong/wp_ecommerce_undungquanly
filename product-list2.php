@@ -42,13 +42,12 @@
     $products_total = $core->getJson($url,true);
 
     $url = "dmvt?limit=".$limit."&q={status:true,ma_nvt:$group_json}&page=".$page."&sort=".$sort."&id_app=".$id_app;
-    $products = $core->getJson($url,true);
-
-   
+    $products = $core->getJson($url,true);   
     
 ?>
 <script>
     var products_count = <?php echo count($products_total); ?>;
+    
 </script>
 <?php get_header();?>
 <div class="ecommerce"  ng-app="shopApp" ng-controller="productListController" ng-cloak>
@@ -71,11 +70,15 @@
         })
 	</script>
     
+    <div class="header-page-shop-post-content" style="margin-bottom:10px">
+        <?php echo $header_page_shop_post_content ?>
+    </div>
+    
     <div class="main">
       <div class="">
         <!-- BEGIN SIDEBAR -->
         <div style="margin-bottom:10px">
-            <?php include $dir."template/h-bar.html";?>
+            <?php include $dir."template/h-bar.html" ?>
         </div>
         <!-- END SIDEBAR -->
         <!-- CONTENT -->
@@ -131,6 +134,10 @@
         </div>
         <!-- END SIDEBAR & CONTENT -->
       </div>
+    </div>
+    
+    <div class="footer-page-shop-post-content" style="margin-top:10px">
+        <?php echo $footer_page_shop_post_content ?>
     </div>
 </div>
  <?php

@@ -146,13 +146,13 @@ function setup_fields() {
         $server_url = get_option( 'server_url');
         if(!$server_url) $server_url = "https://ungdungquanly.vn";
         
-        echo '<input name="server_url" id="server_url" type="text" value="' . $server_url . '" />';
+        echo '<input style="width:300px"  name="server_url" id="server_url" type="text" value="' . $server_url . '" />';
     } , 'eshop_fields_setting', 'connection_info_session' );
     
     //id app
     register_setting( 'eshop_fields_setting', 'id_app' );
     add_settings_field( 'id_app', 'Id cửa hàng/công ty',function($arguments){
-        echo '<input name="id_app" id="id_app" type="text" value="' . get_option( 'id_app' ) . '" />';
+        echo '<input style="width:300px"  name="id_app" id="id_app" type="text" value="' . get_option( 'id_app' ) . '" />';
     } , 'eshop_fields_setting', 'connection_info_session' );
     
     //use shop page make home page
@@ -198,6 +198,16 @@ function setup_fields() {
         echo '<select name="color_shop" id="color_shop">'.$options.'</select>';
     } , 'eshop_fields_setting', 'connection_info_session' );
     
+    //header page shop
+    register_setting( 'eshop_fields_setting', 'header_page_shop' );
+    add_settings_field( 'header_page_shop', 'Hiện nội dung trang sau dưới header của shop',function($arguments){
+        echo '<input style="width:300px"  name="header_page_shop" id="header_page_shop" type="text" value="' . get_option( 'header_page_shop' ) . '" />';
+    } , 'eshop_fields_setting', 'connection_info_session' );
+    //footer page shop
+    register_setting( 'eshop_fields_setting', 'footer_page_shop' );
+    add_settings_field( 'footer_page_shop', 'Hiện nội dung trang sau trên footer của shop',function($arguments){
+        echo '<input style="width:300px" name="footer_page_shop" id="footer_page_shop" type="text" value="' . get_option( 'footer_page_shop' ) . '" />';
+    } , 'eshop_fields_setting', 'connection_info_session' );
 }
 add_action( 'admin_init', 'setup_fields');
 //summary
@@ -224,6 +234,26 @@ function shop_page()
         $home_page = "product-list2.php";
     }
     if(is_page('home') || is_home()){	
+        //show header page shop
+        $header_page_shop_title = get_option("header_page_shop");
+        if($header_page_shop_title){
+            $header_page_shop = get_page_by_title( $header_page_shop_title );
+            if ($header_page_shop){
+                $header_page_shop_post = get_post($header_page_shop->ID); 
+                $header_page_shop_post_content = apply_filters('the_content', $header_page_shop_post->post_content); 
+            }
+        }
+        //show footer page shop
+        $footer_page_shop_title = get_option("footer_page_shop");
+        if($footer_page_shop_title){
+            $footer_page_shop = get_page_by_title( $footer_page_shop_title );
+            if ($footer_page_shop){
+                $footer_page_shop_post = get_post($footer_page_shop->ID); 
+                $footer_page_shop_post_content = apply_filters('the_content', $footer_page_shop_post->post_content); 
+            }
+        }
+        
+        //
         eshop_libs();
         eshop_custome_style();
         //load core
