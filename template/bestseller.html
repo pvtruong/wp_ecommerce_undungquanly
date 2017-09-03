@@ -9,7 +9,7 @@
 		foreach($products_bestseller as $product){
 		?>
 		<div class="">
-            <a href="sp-<?php echo $product['_id'].'-'.$product['ten_vt'] ?>">
+            <a href="sp-<?php echo $product['_id'].'-'.urlSEO($product['ten_vt']) ?>">
                  <img src="<?php echo $server_url_host.$product['picture_thumb'] ?>" alt="<?php echo $product['ten_vt'] ?>" class="img-responsive" style="width:100%!important"/>
             </a> 
             <div>

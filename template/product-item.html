@@ -6,7 +6,7 @@
       <a ng-click="fastView('<?php echo $product['_id']; ?>')" class="btn btn-default">Xem</a>
     </div>
   </div>
-  <h3><a href="sp-<?php echo $product['_id'].'-'.$product['ten_vt'] ?>"><?php echo $product['ten_vt']?></a></h3>
+  <h3><a href="sp-<?php echo $product['_id'].'-'.urlSEO($product['ten_vt']) ?>"><?php echo $core->truncted($product['ten_vt'],24)?></a></h3>
   <div class="pi-price"><?php echo number_format($product['gia_ban_thuc']); ?> đ</div>
   <a ng-click="cart.add2cart('<?php echo $product['_id']; ?>',1)" class="btn btn-default add2cart">Đặt mua</a>
    <?php

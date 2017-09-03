@@ -9,7 +9,7 @@
 	}
 ?>
 <li class="list-group-item clearfix  dropdown <?php if($group_id==$group['_id']) echo 'active'; ?>">
-	<a href="nh-<?php echo $group['_id'].'-'.$group['ten_nvt'] ?>"  class="<?php if($group_id==$group['_id']) echo 'collapsed'; ?>">
+	<a href="nh-<?php echo $group['_id'].'-'.urlSEO($group['ten_nvt']) ?>"  class="<?php if($group_id==$group['_id']) echo 'collapsed'; ?>">
 		<i class="fa fa-angle-right"></i> <?php echo $group['ten_nvt'] ?>
 	</a>
 	<?php

@@ -9,7 +9,7 @@
 	}
 ?>
 <li role="presentation" class="<?php if($group_id==$group['_id']) echo 'active'; ?>">
-	<a href="nh-<?php echo $group['_id'].'-'.$group['ten_nvt'] ?>"  class="<?php if($group_id==$group['_id']) echo 'collapsed'; ?>">
+	<a href="nh-<?php echo $group['_id'].'-'.urlSEO($group['ten_nvt']) ?>"  class="<?php if($group_id==$group['_id']) echo 'collapsed'; ?>">
 		<?php echo $group['ten_nvt'] ?>
 	</a>
 	 

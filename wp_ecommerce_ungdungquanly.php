@@ -7,6 +7,26 @@ Version: 1.0.0
 /* Start Adding Functions Below this Line */
 //css and js
 require_once dirname( __FILE__ )."/".'libs/core.php';
+function stripUnicode($str){
+  if(!$str) return false;
+   $unicode = array(
+      'a'=>'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
+      'd'=>'đ',
+      'e'=>'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ',
+      'i'=>'í|ì|ỉ|ĩ|ị',
+      'o'=>'ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ',
+      'u'=>'ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự',
+      'y'=>'ý|ỳ|ỷ|ỹ|ỵ',
+   );
+    foreach($unicode as $nonUnicode=>$uni) $str = preg_replace("/($uni)/i",$nonUnicode,$str);
+    return $str;
+}
+
+function urlSEO($url){
+    $url = str_replace(" ","-",$url);
+    $url = stripUnicode($url);
+    return $url;
+}
 function eshop_libs() {
     $server_url_libs = plugins_url( '', __FILE__ );//get_option( 'server_url')."/ecommerce";
     
