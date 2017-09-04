@@ -19,24 +19,28 @@
 		}
 		
 		$nested = true;
-		$url ='dmnvt?k='.$id.'&id_app='.$id_app;
-		
-		$groups = $core->getJson($url,true);
-		$group_json=null;
-		foreach($groups as $group){
-			if($group_json==null){
-				$group_json = '"'.$group['_id'].'"';
-			}else{
-				$group_json = $group_json.',"'.$group['_id'].'"';
-			}
-		}
-		if($group_json==null){
-			$group_json = "'".$id."'";
-		}else{
-			$group_json = '{$in:['.$group_json.']}';
-		}
+        //get groups
+        $url ='dmnvt?q={$or:[{_id:"'.$id.'"},{nh_me:"'.$id.'"}]}&id_app='.$id_app;
+        $groups = $core->getJson($url,true);
+        $group_current=null;
+        $group_json=null;
+        foreach($groups as $group){
+            if($group['_id']==$id){
+                $group_current = $group;
+            }
+            if($group_json==null){
+                $group_json = '"'.$group['_id'].'"';
+            }else{
+                $group_json = $group_json.',"'.$group['_id'].'"';
+            }
+        }
+        if($group_json==null){
+            $group_json = "'".$id."'";
+        }else{
+            $group_json = '{$in:['.$group_json.']}';
+        }
       
-          //get total products
+        //get total products
         $url = "dmvt?q={status:true,ma_nvt:$group_json}&fields=ma_vt&id_app=".$id_app;
         $products_total = $core->getJson($url,true);
       
@@ -79,8 +83,26 @@
       <div class="">
         <ul class="breadcrumb">
             <li><a href="shop">Cửa hàng</a></li>
-            <li class="active"><?php echo $name?></li>
+            <li class="active">
+                <?php 
+                    if($group_current){
+                        echo $group_current['ten_nvt'];
+                    }else{
+                        echo $name;
+                    }
+                    
+                ?>
+            </li>
         </ul>
+          
+        <div class="header-page-group-post-content" style="margin-bottom:10px">
+            <?php 
+                echo $header_page_group_post_content;
+                if($group_current && $group_current['description']){
+                    echo $group_current['description'];
+                }
+            ?>
+        </div>
         <!-- BEGIN SIDEBAR & CONTENT -->
         <div class="row">
           <!-- BEGIN SIDEBAR -->
@@ -138,6 +160,9 @@
           <!-- END CONTENT -->
         </div>
         <!-- END SIDEBAR & CONTENT -->
+        <div class="footer-page-group-post-content" style="margin-top:10px">
+            <?php echo $footer_page_group_post_content ?>
+        </div>
       </div>
     </div>
     

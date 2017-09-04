@@ -228,6 +228,18 @@ function setup_fields() {
     add_settings_field( 'footer_page_shop', 'Hiện nội dung trang sau trên footer của shop',function($arguments){
         echo '<input style="width:300px" name="footer_page_shop" id="footer_page_shop" type="text" value="' . get_option( 'footer_page_shop' ) . '" />';
     } , 'eshop_fields_setting', 'connection_info_session' );
+     //header page group product
+    register_setting( 'eshop_fields_setting', 'header_page_group' );
+    add_settings_field( 'header_page_group', 'Hiện nội dung trang sau dưới header của nhóm sản phẩm',function($arguments){
+        echo '<input style="width:300px"  name="header_page_group" id="header_page_group" type="text" value="' . get_option( 'header_page_group' ) . '" />';
+    } , 'eshop_fields_setting', 'connection_info_session' );
+    //footer page group product
+    register_setting( 'eshop_fields_setting', 'footer_page_group' );
+    add_settings_field( 'footer_page_group', 'Hiện nội dung trang sau trên footer của nhóm sản phẩm',function($arguments){
+        echo '<input style="width:300px" name="footer_page_group" id="footer_page_group" type="text" value="' . get_option( 'footer_page_group' ) . '" />';
+    } , 'eshop_fields_setting', 'connection_info_session' );
+    
+    
 }
 add_action( 'admin_init', 'setup_fields');
 //summary
@@ -500,6 +512,23 @@ function custom_requests ( $wp ) {
                     if(isset($wp->query_vars['ma_nvt'])){
                         eshop_libs();
                         eshop_custome_style();
+                        //header and footer
+                        $header_page_group_title = get_option("header_page_group");
+                        if($header_page_group_title){
+                            $header_page_group = get_page_by_title( $header_page_group_title );
+                            if ($header_page_group){
+                                $header_page_group_post = get_post($header_page_group->ID); 
+                                $header_page_group_post_content = apply_filters('the_content', $header_page_group_post->post_content); 
+                            }
+                        }
+                        $footer_page_group_title = get_option("footer_page_group");
+                        if($footer_page_group_title){
+                            $footer_page_group = get_page_by_title( $footer_page_group_title );
+                            if ($footer_page_group){
+                                $footer_page_group_post = get_post($footer_page_group->ID); 
+                                $footer_page_group_post_content = apply_filters('the_content', $footer_page_group_post->post_content); 
+                            }
+                        }
                         //load core
                         $core = new clientCore($server_url,$id_app);
 

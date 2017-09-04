@@ -20,11 +20,15 @@
 
     $nested = true;
 
-    $url ='dmnvt?k='.$id.'&id_app='.$id_app;
-
+    $url ='dmnvt?q={$or:[{_id:"'.$id.'"},{nh_me:"'.$id.'"}]}&id_app='.$id_app;
+    
     $groups = $core->getJson($url,true);
+    $group_current=null;
     $group_json=null;
     foreach($groups as $group){
+        if($group['_id']==$id){
+            $group_current = $group;
+        }
         if($group_json==null){
             $group_json = '"'.$group['_id'].'"';
         }else{
@@ -80,7 +84,16 @@
         <div style="margin-bottom:10px">
             <?php include $dir."template/h-bar.html" ?>
         </div>
-        <!-- END SIDEBAR -->
+        <!-- header group -->
+        <div class="header-page-group-post-content" style="margin-bottom:10px">
+            <?php
+                echo $header_page_group_post_content ;
+                if($group_current && $group_current['description']){
+                    echo $group_current['description'];
+                }
+            ?>
+            
+        </div>
         <!-- CONTENT -->
         <div class="row">
           <!-- BEGIN CONTENT -->
@@ -135,7 +148,9 @@
         <!-- END SIDEBAR & CONTENT -->
       </div>
     </div>
-    
+    <div class="footer-page-group-post-content" style="margin-top:10px">
+        <?php echo $footer_page_group_post_content ?>
+    </div>
     <div class="footer-page-shop-post-content" style="margin-top:10px">
         <?php echo $footer_page_shop_post_content ?>
     </div>
