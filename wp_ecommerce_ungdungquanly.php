@@ -9,7 +9,9 @@ Version: 1.0.0
 require_once dirname( __FILE__ )."/".'libs/core.php';
 function stripUnicode($str){
   if(!$str) return false;
-   $unicode = array(
+  $str = strtolower($str);
+    
+  $unicode = array(
       'a'=>'á|à|ả|ã|ạ|ă|ắ|ặ|ằ|ẳ|ẵ|â|ấ|ầ|ẩ|ẫ|ậ',
       'd'=>'đ',
       'e'=>'é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ',

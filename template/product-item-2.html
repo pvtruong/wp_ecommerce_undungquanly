@@ -12,10 +12,26 @@
    <?php
     if($product['gia_ban_le']!=$product['gia_ban_thuc']){
         echo "<div class='sticker sticker-sale'></div>";
+        if($product['bestseller']==true){
+            echo "<div class='sticker sticker-bestseller-under'></div>";
+        }
+    }else{
+        if($product['bestseller']==true){
+            echo "<div class='sticker sticker-bestseller'></div>";
+        }
     }
-    if($product['sp_moi']==true){
-        echo "<div class='sticker sticker-new'></div>";
+
+    if($product['hot']==true){
+        echo "<div class='sticker sticker-hot'></div>";
+        if($product['sp_moi']==true){
+            echo "<div class='sticker sticker-new-under'></div>";
+        }
+    }else{
+        if($product['sp_moi']==true){
+            echo "<div class='sticker sticker-new'></div>";
+        }
     }
+    
   ?>
 </div>
 

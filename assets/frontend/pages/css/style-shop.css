@@ -359,8 +359,26 @@ Header and header elements
 .sticker-sale {
 	background: url(../../layout/img/sale.png) no-repeat;
 }
+.sticker-bestseller {
+	background: url(../../layout/img/bestseller.png) no-repeat;
+}
+.sticker-bestseller-under {
+	background: url(../../layout/img/bestseller.png) no-repeat;
+    top:30px
+}
 .sticker-new {
 	background: url(../../layout/img/new.png) no-repeat;
+	left: auto;
+	right: 0;
+}
+.sticker-new-under {
+	background: url(../../layout/img/new.png) no-repeat;
+	left: auto;
+	right: 0;
+    top:30px
+}
+.sticker-hot {
+	background: url(../../layout/img/hot.png) no-repeat;
 	left: auto;
 	right: 0;
 }
